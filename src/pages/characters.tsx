@@ -1,36 +1,7 @@
 import React from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import Image from "next/image";
-
-type Place = {
-  name: string;
-  url: string;
-};
-
-type Characters = {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: Place;
-  location: Place;
-  image: string;
-  episode: string[];
-  url: string;
-  created: string;
-};
-
-type Data = {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
-  };
-  results: Characters[];
-};
+import { Data } from "@/types/CharacterTypes";
 
 export const getServerSideProps = (async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
@@ -60,7 +31,7 @@ function characters({
               );
             })}
         </div>
-        <div className="text-center my-5">
+        <div className="text-center my-6">
           <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
             Previous
           </button>
