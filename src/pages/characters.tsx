@@ -2,6 +2,7 @@ import React from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import Image from "next/image";
 import { Data } from "@/types/CharacterTypes";
+import Head from "next/head";
 
 export const getServerSideProps = (async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
@@ -14,6 +15,15 @@ function characters({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
+      <Head>
+        <title>Characters</title>
+        <meta
+          name="description"
+          content="Page fetching all characters from the api"
+        />
+        <meta name="viewport" content="width=device-width initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main className={"container my-10 mx-auto"}>
         <h1 className={"text-center text-2xl font-bold"}>List of Characters</h1>
         <div className="container columns-7 mt-5">
