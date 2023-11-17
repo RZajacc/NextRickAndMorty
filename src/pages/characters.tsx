@@ -60,6 +60,14 @@ function characters({
               );
             })}
         </div>
+        <div className="text-center my-5">
+          <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
+            Previous
+          </button>
+          <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
+            Next
+          </button>
+        </div>
       </main>
     </>
   );
