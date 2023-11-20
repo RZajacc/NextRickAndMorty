@@ -28,19 +28,31 @@ function Characters({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={"container my-10 mx-auto"}>
-        <h1 className={"text-center text-2xl font-bold"}>List of Characters</h1>
+        <h1 className={"text-center text-2xl font-bold "}>
+          List of Characters
+        </h1>
         <div className="container columns-7 mt-5">
           {data.results &&
             data.results.map((character) => {
               return (
-                <Image
-                  src={character.image}
-                  key={character.id}
-                  className="mb-4"
-                  width={"200"}
-                  height={"200"}
-                  alt={character.name}
-                />
+                <>
+                  <div className="relative bg-indigo-950 group">
+                    <Image
+                      src={character.image}
+                      key={character.id}
+                      className="mb-4 relative group-hover:opacity-10"
+                      width={"200"}
+                      height={"200"}
+                      alt={character.name}
+                    />
+                    <Link
+                      href={""}
+                      className="absolute bottom-16 left-9 text-white-500 text-xl invisible group-hover:visible hover:font-bold  "
+                    >
+                      Learn more
+                    </Link>
+                  </div>
+                </>
               );
             })}
         </div>

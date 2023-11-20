@@ -46,14 +46,17 @@ function CharPage({ data }: ComponentProps) {
           {data.results &&
             data.results.map((character) => {
               return (
-                <Image
-                  src={character.image}
-                  key={character.id}
-                  className="mb-4"
-                  width={"200"}
-                  height={"200"}
-                  alt={character.name}
-                />
+                <>
+                  <Image
+                    src={character.image}
+                    key={character.id}
+                    className="mb-4"
+                    width={"200"}
+                    height={"200"}
+                    alt={character.name}
+                  />
+                  <p>See more</p>
+                </>
               );
             })}
         </div>
