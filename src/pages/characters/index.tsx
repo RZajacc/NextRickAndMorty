@@ -3,6 +3,8 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import Image from "next/image";
 import { Data } from "@/types/CharacterTypes";
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const getServerSideProps = (async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
@@ -10,9 +12,10 @@ export const getServerSideProps = (async () => {
   return { props: { data } };
 }) satisfies GetServerSideProps<{ data: Data }>;
 
-function characters({
+function Characters({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -43,10 +46,24 @@ function characters({
         </div>
         <div className="text-center my-6">
           <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
-            Previous
+            <Link
+              href={`/characters/${(router.query.page
+                ? +router.query.page
+                : "1"
+              ).toString()}`}
+            >
+              Previous
+            </Link>
           </button>
           <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
-            Next
+            <Link
+              href={`/characters/${(router.query.page
+                ? +router.query.page
+                : "2"
+              ).toString()}`}
+            >
+              Next
+            </Link>
           </button>
         </div>
       </main>
@@ -54,4 +71,4 @@ function characters({
   );
 }
 
-export default characters;
+export default Characters;
