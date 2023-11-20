@@ -46,7 +46,7 @@ function Characters({
                       alt={character.name}
                     />
                     <Link
-                      href={""}
+                      href={`/characters/character/${character.id}`}
                       className="absolute bottom-16 left-9 text-white-500 text-xl invisible group-hover:visible hover:font-bold  "
                     >
                       Learn more
