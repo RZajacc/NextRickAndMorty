@@ -47,7 +47,7 @@ function Characters({
                     />
                     <Link
                       href={`/characters/character/${character.id}`}
-                      className="absolute bottom-16 left-9 text-white-500 text-xl invisible group-hover:visible hover:font-bold  "
+                      className="absolute bottom-16 right-8 text-white-500 text-xl invisible group-hover:visible hover:font-bold  "
                     >
                       Learn more
                     </Link>

@@ -37,21 +37,40 @@ function Character({ character }: ComponentProps) {
   console.log(character);
   return (
     <>
-      <div className="container columns-2">
+      <div className="container columns-2 w-1/2 mx-auto my-16">
         <Image
           src={character.image}
           key={character.id}
           className="mb-4 relative group-hover:opacity-10"
-          width={"200"}
-          height={"200"}
+          width={"300"}
+          height={"300"}
           alt={character.name}
         />
-        <p>{character.name}</p>
-        <p>{character.gender}</p>
-        <p>{character.species}</p>
-        <p>{character.status}</p>
-        <p>{character.location.name}</p>
-        <p>{character.episode.length}</p>
+        <div className="mx-4 w-96">
+          <p className="p-1">
+            <strong>Name: </strong>
+            {character.name}
+          </p>
+          <p className="p-1">
+            <strong>Gender: </strong>
+            {character.gender}
+          </p>
+          <p className="p-1">
+            <strong>Species: </strong>
+            {character.species}
+          </p>
+          <p className="p-1">
+            <strong>Status: </strong>
+            {character.status}
+          </p>
+          <p className="p-1">
+            <strong>Origin: </strong>
+            {character.location.name}
+          </p>
+          <p className="p-1">
+            Appears in <strong>{character.episode.length} </strong>episodes
+          </p>
+        </div>
       </div>
     </>
   );
