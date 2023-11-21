@@ -78,6 +78,15 @@ function Character({ character }: ComponentProps) {
           </p>
         </div>
       </div>
+
+      <div className="text-center my-6">
+        <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
+          Previous
+        </button>
+        <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
+          Next
+        </button>
+      </div>
     </>
   );
 }

@@ -57,7 +57,7 @@ function Characters({
             })}
         </div>
         <div className="text-center my-6">
-          <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
+          <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
             <Link
               href={`/characters/${(router.query.page
                 ? +router.query.page
@@ -67,7 +67,7 @@ function Characters({
               Previous
             </Link>
           </button>
-          <button className="bg-indigo-950 text-white p-2 mx-5 w-24 rounded-lg hover:font-semibold">
+          <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
             <Link
               href={`/characters/${(router.query.page
                 ? +router.query.page
