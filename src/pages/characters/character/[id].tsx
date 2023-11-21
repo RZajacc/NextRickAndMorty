@@ -1,6 +1,7 @@
 import { Characters, Data } from "@/types/CharacterTypes";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type ComponentProps = {
@@ -37,7 +38,12 @@ function Character({ character }: ComponentProps) {
   console.log(character);
   return (
     <>
-      <div className="container columns-2 w-1/2 mx-auto my-16">
+      <div className="text-center my-14">
+        <button className="bg-indigo-950 text-white p-2 mx-5 w-36 rounded-lg hover:font-semibold">
+          <Link href={"/characters"}>Take me back!</Link>
+        </button>
+      </div>
+      <div className="container columns-2 w-1/2 mx-auto my-14">
         <Image
           src={character.image}
           key={character.id}
@@ -46,28 +52,28 @@ function Character({ character }: ComponentProps) {
           height={"300"}
           alt={character.name}
         />
-        <div className="mx-4 w-96">
-          <p className="p-1">
+        <div className="w-96">
+          <p className="p-2 text-xl">
             <strong>Name: </strong>
             {character.name}
           </p>
-          <p className="p-1">
+          <p className="p-2 text-xl">
             <strong>Gender: </strong>
             {character.gender}
           </p>
-          <p className="p-1">
+          <p className="p-2 text-xl">
             <strong>Species: </strong>
             {character.species}
           </p>
-          <p className="p-1">
+          <p className="p-2 text-xl">
             <strong>Status: </strong>
             {character.status}
           </p>
-          <p className="p-1">
+          <p className="p-2 text-xl">
             <strong>Origin: </strong>
             {character.location.name}
           </p>
-          <p className="p-1">
+          <p className="p-2 text-xl">
             Appears in <strong>{character.episode.length} </strong>episodes
           </p>
         </div>
