@@ -33,10 +33,22 @@ function Episodes() {
   });
   console.log(data);
   if (loading) {
-    return <h1>...Loading...</h1>;
+    return (
+      <>
+        <div className="text-center my-32">
+          <h1 className="text-4xl font-bold">...Loading...</h1>
+        </div>
+      </>
+    );
   }
   if (error) {
-    return <h1>{error.message}</h1>;
+    return (
+      <>
+        <div className="text-center my-32">
+          <h1 className="text-4xl font-bold">{error.message}</h1>;
+        </div>
+      </>
+    );
   }
 
   return (
@@ -79,7 +91,7 @@ function Episodes() {
                 data.episodes.results.map((episode, id) => {
                   return (
                     <>
-                      <tr className="border-b">
+                      <tr className="border-b last-of-type:border-none">
                         <td className="text-center font-bold p-1">{id + 1}.</td>
                         <td className="border-r p-1">{episode.name}</td>
                         <td className="flex flex-wrap">
