@@ -27,7 +27,7 @@ function Characters({
         <meta name="viewport" content="width=device-width initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={"container my-10 mx-auto"}>
+      <main className={"container my-10 mx-auto mb-16"}>
         <h1 className={"text-center text-2xl font-bold "}>
           List of Characters
         </h1>

@@ -1,5 +1,6 @@
 import { Data } from "@/types/CharacterTypes";
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -40,22 +41,38 @@ function CharPage({ data }: ComponentProps) {
   const router = useRouter();
   return (
     <>
-      <main className={"container my-10 mx-auto"}>
+      <Head>
+        <title>Characters</title>
+        <meta
+          name="description"
+          content="Page fetching all characters from the api"
+        />
+        <meta name="viewport" content="width=device-width initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={"container my-10 mx-auto mb-16"}>
         <h1 className={"text-center text-2xl font-bold"}>List of Characters</h1>
         <div className="container columns-7 mt-5">
           {data.results &&
             data.results.map((character) => {
               return (
                 <>
-                  <Image
-                    src={character.image}
-                    key={character.id}
-                    className="mb-4"
-                    width={"200"}
-                    height={"200"}
-                    alt={character.name}
-                  />
-                  <p>See more</p>
+                  <div className="relative bg-indigo-950 group">
+                    <Image
+                      src={character.image}
+                      key={character.id}
+                      className="mb-4 relative group-hover:opacity-10"
+                      width={"200"}
+                      height={"200"}
+                      alt={character.name}
+                    />
+                    <Link
+                      href={`/characters/character/${character.id}`}
+                      className="absolute bottom-16 right-8 text-white-500 text-xl invisible group-hover:visible hover:font-bold  "
+                    >
+                      Learn more
+                    </Link>
+                  </div>
                 </>
               );
             })}
