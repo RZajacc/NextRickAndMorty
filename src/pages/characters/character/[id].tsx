@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps<ComponentProps> = async (
   context
 ) => {
-  //   console.log("context", context.params?.id);
+  // console.log("context", context.params?.id);
   const response = await fetch(
     `https://rickandmortyapi.com/api/character/${context.params?.id}`
   );
@@ -35,7 +35,9 @@ export const getStaticProps: GetStaticProps<ComponentProps> = async (
 };
 
 function Character({ character }: ComponentProps) {
-  console.log(character);
+  const previousID = character.id === 1 ? 826 : character.id - 1;
+  const nextID = character.id === 826 ? 1 : character.id + 1;
+
   return (
     <>
       <div className="text-center my-14">
@@ -81,10 +83,10 @@ function Character({ character }: ComponentProps) {
 
       <div className="text-center my-6">
         <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
-          Previous
+          <Link href={`/characters/character/${previousID}`}>Previous</Link>
         </button>
         <button className="bg-indigo-950 text-white p-2 mx-12 w-24 rounded-lg hover:font-semibold">
-          Next
+          <Link href={`/characters/character/${nextID}`}>Next</Link>
         </button>
       </div>
     </>
